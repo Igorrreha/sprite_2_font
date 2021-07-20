@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/font_sheet.png-f6fbc312041fb4bfc54c4f0a706cada8.image"
+
+[deps]
+
+source_file="res://img/font_sheet.png"
+dest_files=[ "res://.import/font_sheet.png-f6fbc312041fb4bfc54c4f0a706cada8.image" ]
+
+[params]
+

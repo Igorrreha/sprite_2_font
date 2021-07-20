@@ -1,0 +1,165 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://ui_elem/outline_item.gd" type="Script" id=1]
+[ext_resource path="res://img/arrow_down.svg" type="Texture" id=2]
+[ext_resource path="res://img/arrow_up.svg" type="Texture" id=3]
+[ext_resource path="res://img/GuiVisibilityHidden.svg" type="Texture" id=4]
+[ext_resource path="res://img/GuiVisibilityVisible.svg" type="Texture" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+content_margin_top = 2.0
+
+[node name="Item" type="HBoxContainer"]
+margin_right = 506.0
+margin_bottom = 56.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_right = 24.0
+margin_bottom = 68.0
+size_flags_vertical = 4
+
+[node name="Up" type="TextureButton" parent="Buttons"]
+margin_left = 3.0
+margin_right = 21.0
+margin_bottom = 18.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 3 )
+
+[node name="Enability" type="TextureButton" parent="Buttons"]
+margin_top = 22.0
+margin_right = 24.0
+margin_bottom = 46.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+
+[node name="Down" type="TextureButton" parent="Buttons"]
+margin_left = 3.0
+margin_top = 50.0
+margin_right = 21.0
+margin_bottom = 68.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 2 )
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+margin_left = 28.0
+margin_right = 446.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+color = Color( 0.866667, 0.223529, 0.345098, 1 )
+
+[node name="Bitmask" type="GridContainer" parent="."]
+margin_left = 450.0
+margin_top = 6.0
+margin_right = 506.0
+margin_bottom = 62.0
+size_flags_vertical = 4
+columns = 3
+
+[node name="NW" type="CheckBox" parent="Bitmask"]
+margin_right = 16.0
+margin_bottom = 16.0
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="N" type="CheckBox" parent="Bitmask"]
+margin_left = 20.0
+margin_right = 36.0
+margin_bottom = 16.0
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NE" type="CheckBox" parent="Bitmask"]
+margin_left = 40.0
+margin_right = 56.0
+margin_bottom = 16.0
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="W" type="CheckBox" parent="Bitmask"]
+margin_top = 20.0
+margin_right = 16.0
+margin_bottom = 36.0
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remove" type="Button" parent="Bitmask"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 36.0
+margin_bottom = 36.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 2 )
+text = "X"
+
+[node name="E" type="CheckBox" parent="Bitmask"]
+margin_left = 40.0
+margin_top = 20.0
+margin_right = 56.0
+margin_bottom = 36.0
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SW" type="CheckBox" parent="Bitmask"]
+margin_top = 40.0
+margin_right = 16.0
+margin_bottom = 56.0
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="S" type="CheckBox" parent="Bitmask"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 36.0
+margin_bottom = 56.0
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SE" type="CheckBox" parent="Bitmask"]
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 56.0
+margin_bottom = 56.0
+custom_styles/normal = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Buttons/Up" to="." method="_on_Up_pressed"]
+[connection signal="toggled" from="Buttons/Enability" to="." method="_on_Visibility_toggled"]
+[connection signal="pressed" from="Buttons/Down" to="." method="_on_Down_pressed"]
+[connection signal="color_changed" from="ColorPickerButton" to="." method="_on_ColorPickerButton_color_changed"]
+[connection signal="toggled" from="Bitmask/NW" to="." method="_on_NW_toggled"]
+[connection signal="toggled" from="Bitmask/N" to="." method="_on_N_toggled"]
+[connection signal="toggled" from="Bitmask/NE" to="." method="_on_NE_toggled"]
+[connection signal="toggled" from="Bitmask/W" to="." method="_on_W_toggled"]
+[connection signal="pressed" from="Bitmask/Remove" to="." method="_on_Remove_pressed"]
+[connection signal="toggled" from="Bitmask/E" to="." method="_on_E_toggled"]
+[connection signal="toggled" from="Bitmask/SW" to="." method="_on_SW_toggled"]
+[connection signal="toggled" from="Bitmask/S" to="." method="_on_S_toggled"]
+[connection signal="toggled" from="Bitmask/SE" to="." method="_on_SE_toggled"]
